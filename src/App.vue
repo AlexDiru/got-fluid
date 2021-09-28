@@ -1,7 +1,7 @@
 <template>
   <img alt="Got fluid" src="./assets/GotFluid.png">
   <h1>Paste your Ethereum address</h1>
-  <input placeholder="0x..." v-model="address">
+  <input @keyup.enter="redirect" placeholder="0x..." v-model="address">
   <button @click="redirect">Check</button>
   <br/><br/>
   <br/><br/>
