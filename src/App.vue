@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img alt="Got fluid" src="./assets/GotFluid.png">
+  <h1>Paste your Ethereum address</h1>
+  <input placeholder="0x..." v-model="address">
+  <button @click="redirect">Check</button>
+  <br/><br/>
+  <br/><br/>
+  <p><i>Made by the community</i></p>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      address: null,
+    }
+  },
+  methods: {
+    redirect() {
+      if (!this.address)
+        return
+
+      const url = "https://arbiscan.io/token/0x876ec6be52486eeec06bc06434f3e629d695c6ba?a=" + this.address
+      window.open(url, '_blank')
+    }
   }
 }
 </script>
